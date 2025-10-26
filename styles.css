@@ -1,0 +1,354 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Rubik", sans-serif;
+}
+
+body {
+	background-color: black;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.dashboard {
+	display: grid;
+	grid-template-columns: 250px 1fr;
+	gap: 1.5rem;
+	max-width: 1100px;
+	width: 90%;
+}
+
+.profile-card {
+	background-color: hsl(0, 0%, 30%);
+	border-radius: 15px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.profile-top {
+	background-color: hsl(0, 0%, 52%);
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.profile-top img.avatar {
+	width: 70px;
+	height: 70px;
+	border: 3px solid #fff;
+	border-radius: 50%;
+}
+
+.report-for {
+	font-size: 0.9rem;
+	color: hsl(236, 100%, 87%);
+}
+
+.name {
+	font-size: 2rem;
+	font-weight: 300;
+	line-height: 1.2;
+	word-break: break-word;
+}
+
+.period-selector {
+	background-color: hsl(0, 0%, 30%);
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem 2rem;
+	gap: 1rem;
+}
+
+.period-btn {
+	background: none;
+	border: none;
+	color: hsl(235, 45%, 61%);
+	font-size: 1rem;
+	cursor: pointer;
+	text-align: left;
+	transition: color 0.3s ease;
+}
+
+.period-btn:hover,
+.period-btn.active {
+	color: #fff;
+}
+
+.cards-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1.5rem;
+}
+
+.card {
+	position: relative;
+	border-radius: 15px;
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+}
+
+.card::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 45%;
+	background-repeat: no-repeat;
+	background-position: right 1rem top;
+	background-size: 60px;
+}
+
+.card-content {
+	background-color: hsl(0, 0%, 30%);
+	border-radius: 15px;
+	padding: 1.5rem;
+	position: relative;
+	z-index: 2;
+	margin-top: 40px;
+}
+
+.card-content h3 {
+	font-weight: 500;
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card-content h3::after {
+	content: "⋯";
+	font-size: 1.5rem;
+	color: hsl(236, 100%, 87%);
+}
+
+.card-content .hours {
+	font-size: 2.5rem;
+	margin-bottom: 0.3rem;
+}
+
+.card-content .previous {
+	font-size: 0.9rem;
+	color: hsl(236, 100%, 87%);
+}
+
+.card.Work::before {
+	background-color: hsl(15, 100%, 80%);
+	background-image: url("icon-work.svg");
+}
+
+.card.Play::before {
+	background-color: hsl(195, 74%, 62%);
+	background-image: url("icon-play.svg");
+}
+
+.card.Study::before {
+	background-color: hsl(348, 100%, 81%);
+	background-image: url("icon-study.svg");
+}
+
+.card.Exercise::before {
+	background-color: hsl(145, 100%, 78%);
+	background-image: url("icon-exercise.svg");
+}
+
+.card.Social::before {
+	background-color: hsl(264, 100%, 78%);
+	background-image: url("icon-social.svg");
+}
+
+.card.SelfCare::before {
+	background-color: hsl(43, 100%, 80%);
+	background-image: url("icon-self-care.svg");
+}
+
+@media (min-width: 901px) {
+	.dashboard {
+		grid-template-columns: 250px 1fr;
+	}
+	.profile-card {
+		flex-direction: column;
+	}
+	.profile-top {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		border-radius: 15px 15px 0 0;
+		padding: 2rem;
+	}
+	.period-selector {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		padding: 1.5rem 2rem;
+		gap: 1rem;
+		border-radius: 0 0 15px 15px;
+	}
+}
+
+@media (max-width: 900px) and (min-width: 700px) {
+	.dashboard {
+		display: flex !important;
+		flex-direction: column !important;
+		align-items: center;
+		width: 100%;
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	.profile-card {
+		display: flex !important;
+		flex-direction: column !important;
+		width: 100%;
+		max-width: 700px;
+		border-radius: 15px;
+		overflow: hidden;
+	}
+	.profile-top {
+		display: flex !important;
+		flex-direction: row !important;
+		align-items: center;
+		justify-content: flex-start;
+		background-color: hsl(0, 0%, 52%);
+		padding: 2rem;
+		gap: 1.5rem;
+		border-radius: 15px 15px 0 0;
+	}
+	.profile-top img.avatar {
+		width: 70px;
+		height: 70px;
+		border: 3px solid #fff;
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+	.profile-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: left;
+	}
+	.report-for {
+		font-size: 0.9rem;
+		color: hsl(236, 100%, 87%);
+	}
+	.name {
+		font-size: 1.8rem;
+		font-weight: 300;
+		line-height: 1.2;
+	}
+	.period-selector {
+	    background-color: hsl(0, 0%, 30%);
+		display: flex !important;
+		flex-direction: row !important;
+		justify-content: center;
+		align-items: center;
+		border-radius: 0 0 15px 15px;
+		padding: 1.5rem;
+		gap: 2.5rem;
+	}
+	.period-btn {
+		background: none;
+		border: none;
+		color: hsl(235, 45%, 61%);
+		font-size: 1.1rem;
+		cursor: pointer;
+		transition: color 0.3s ease;
+	}
+	.period-btn:hover,
+	.period-btn.active {
+		color: #fff;
+	}
+	.cards-container {
+		width: 100%;
+		max-width: 900px;
+		margin-top: 2rem;
+		display: grid !important;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1.5rem;
+	}
+	.card-content .hours {
+		font-size: 2rem;
+	}
+}
+
+@media (max-width: 699px) {
+	.dashboard {
+		grid-template-columns: 1fr;
+	}
+	.profile-card {
+		flex-direction: column;
+		border-radius: 15px;
+	}
+	.profile-top {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		background-color: hsl(0, 0%, 52%);
+		border-radius: 15px 15px 0 0;
+		padding: 1.5rem;
+		gap: 1rem;
+	}
+	.profile-top img.avatar {
+		width: 60px;
+		height: 60px;
+		border: 3px solid #fff;
+		border-radius: 50%;
+		flex-shrink: 0;
+	}
+	.profile-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: left;
+	}
+	.report-for {
+		font-size: 0.9rem;
+		color: hsl(236, 100%, 87%);
+	}
+	.name {
+		font-size: 1.4rem;
+		font-weight: 300;
+		line-height: 1.2;
+	}
+	.period-selector {
+		background-color: hsl(0, 0%, 30%);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		border-radius: 0 0 15px 15px;
+		padding: 1rem;
+		gap: 1rem;
+	}
+	.period-btn {
+		background: none;
+		border: none;
+		color: hsl(235, 45%, 61%);
+		font-size: 1rem;
+		cursor: pointer;
+		transition: color 0.3s ease;
+	}
+	.period-btn:hover,
+	.period-btn.active {
+		color: #fff;
+	}
+	.cards-container {
+		grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	}
+	.card-content .hours {
+		font-size: 1.8rem;
+	}
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="dashboard">
+      <section class="profile-card">
+        <div class="profile-top">
+          <img src="avatar_male.png" alt="User Avatar" class="avatar" />
+          <div class="profile-info">
+            <p class="report-for">Report for</p>
+            <h1 class="name">Jeremy<br />Robson</h1>
+          </div>
+        </div>
+        <div class="period-selector">
+          <button class="period-btn active" data-period="daily">Daily</button>
+          <button class="period-btn" data-period="weekly">Weekly</button>
+        </div>
+      </section>
+      <section class="cards-container"></section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
